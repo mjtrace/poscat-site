@@ -106,6 +106,9 @@ section.block + section.block{border-top:1px solid var(--rule)}
 .row .who{font-size:15px;color:var(--ink-2)}
 .pending .title{color:#9A98A2;font-weight:400}
 .pending .no{color:var(--rule)}
+.canceled s{text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:var(--ink-2)}
+.canceled .date,.canceled .who{color:#9A98A2}
+.tag-off{display:inline-block;vertical-align:2px;margin-left:10px;font:600 11px/1 var(--sans);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--rule);border-radius:999px;padding:4px 8px}
 details > summary{list-style:none;cursor:pointer}
 details > summary::-webkit-details-marker{display:none}
 .chev{width:22px;height:22px;border:1.5px solid var(--ink);border-radius:50%;position:relative;transition:transform .25s}

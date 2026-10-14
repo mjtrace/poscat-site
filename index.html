@@ -78,7 +78,7 @@
 <script>
 /* Edit sessions here. Leave title empty for sessions not yet announced.
    Optional per session: who, abstract, slides [{ title, href, src }] (files in assets/slides/),
-   papers [{ title, href, src }]. */
+   papers [{ title, href, src }], canceled: true (struck through, marked Canceled). */
 const SESSIONS = [
   { date: "Oct 8", title: "Foundations of Post-training RL", who: "김민준",
     abstract: "사전학습된 LLM을 강화학습으로 후속학습하는 데 쓰이는 policy gradient 알고리즘의 흐름을 정리합니다. MDP와 Bellman 방정식을 기초로, 샘플만으로 gradient를 추정하는 REINFORCE에서 출발해 baseline과 advantage로 분산을 줄인 A2C, KL 제약으로 업데이트 크기를 제한한 TRPO, 그리고 clip과 GAE로 이를 간단하게 근사한 PPO까지 각 알고리즘이 앞 단계의 어떤 문제를 해결했는지 따라갑니다. 모든 유도는 발표 안에서 정의한 기호만으로 처음부터 끝까지 따라갈 수 있도록 self-contained한 수학 표기로 정리했습니다. 마지막으로 이 알고리즘들이 LLM에서 어떻게 쓰이는지 RLHF와 RLVR을 통해 간단히 소개하고, 자세한 내용은 2부에서 이어갑니다.",
@@ -86,20 +86,23 @@ const SESSIONS = [
       { title: "Intro", href: "assets/slides/2026-10-08-intro.pdf", src: "PDF · 13 slides" },
       { title: "Post-training RL", href: "assets/slides/2026-10-08-post-training-rl-part1.pdf", src: "PDF · 40 slides" },
     ] },
-  { date: "Oct 15" },
+  { date: "Oct 15", canceled: true },
   { date: "Nov 5" },
   { date: "Nov 12", who: "문정현" },
   { date: "Nov 19", who: "이우진, 장홍준" },
   { date: "Nov 26", who: "고정윤" },
   { date: "Dec 3", who: "정채현" },
-  { date: "Dec 10" }
+  { date: "Dec 10", who: "홍성현" }
 ];
 
 const list = document.getElementById('session-list');
 SESSIONS.forEach((s, i) => {
   const li = document.createElement('li');
   const no = `<span class="no">${i + 1}</span>`;
-  if (!s.title) {
+  if (s.canceled) {
+    li.className = 'pending canceled';
+    li.innerHTML = `<div class="row">${no}<span class="date"><s>${s.date || 'Date TBA'}</s></span><span class="title"><s>${s.title || 'To be announced'}</s><em class="tag-off">Canceled</em></span><span class="who"><s>${s.who || '—'}</s></span><span></span></div>`;
+  } else if (!s.title) {
     li.className = 'pending';
     li.innerHTML = `<div class="row">${no}<span class="date">${s.date || 'Date TBA'}</span><span class="title">To be announced</span><span class="who">${s.who || '—'}</span><span></span></div>`;
   } else {
