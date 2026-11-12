@@ -102,7 +102,7 @@ section.block + section.block{border-top:1px solid var(--rule)}
 .row{display:grid;grid-template-columns:64px 130px 1fr 160px 28px;align-items:center;gap:16px;padding:20px 4px;min-height:72px}
 .row .no{font:600 22px/1 var(--sans);color:var(--peri);font-variant-numeric:tabular-nums}
 .row .date{font-size:14px;color:var(--ink-2)}
-.row .title{font-size:18px;font-weight:500}
+.row .title{font-size:18px;font-weight:500;word-break:keep-all}
 .row .who{font-size:15px;color:var(--ink-2)}
 .pending .title{color:#9A98A2;font-weight:400}
 .pending .no{color:var(--rule)}
@@ -123,7 +123,7 @@ details summary:hover .title{color:var(--peri-deep)}
 .more p:lang(ko){font:400 16.5px/1.8 var(--sans);word-break:keep-all}
 .more ul{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule)}
 .more li{border-bottom:1px solid var(--rule)}
-.more li a{display:block;padding:12px 0;font:500 16px/1.4 var(--sans);color:var(--ink);text-decoration:none}
+.more li a{display:block;padding:12px 0;font:500 16px/1.4 var(--sans);color:var(--ink);text-decoration:none;word-break:keep-all}
 .more li a:hover{color:var(--peri-deep)}
 .more li a span{display:block;font-size:13px;font-weight:400;color:var(--ink-2);margin-top:3px}
 
